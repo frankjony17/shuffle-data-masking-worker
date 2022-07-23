@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FKSolutionsSource.Infra" Version="2.5.0" />
+    <PackageReference Include="FKSolutionsSource.Infra.Abstractions" Version="2.5.0" />
+    <PackageReference Include="FKSolutionsSource.Infra.Logging" Version="2.5.0" />
+    <PackageReference Include="FKSolutionsSource.Infra.MessagingBroker" Version="2.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShuffleDataMasking.Domain\ShuffleDataMasking.Domain.csproj" />
+    <ProjectReference Include="..\ShuffleDataMasking.Infra.Data\ShuffleDataMasking.Infra.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+</Project>
+

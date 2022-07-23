@@ -1,0 +1,196 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Infra.Data/ShuffleDataMasking.Infra.Data.csproj": {}
+  },
+  "projects": {
+    "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/ShuffleDataMasking.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/ShuffleDataMasking.Domain.csproj",
+        "projectName": "ShuffleDataMasking.Domain",
+        "projectPath": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/ShuffleDataMasking.Domain.csproj",
+        "packagesPath": "/home/frank/.nuget/packages/",
+        "outputPath": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/frank/Projects/others/git/shuffle-data-masking-worker/nuget.config",
+          "/home/frank/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.devfksolutions.com.br/repository/fksolutions-nuget/": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "FKSolutionsSource.Infra.Abstractions": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Infra.Data/ShuffleDataMasking.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Infra.Data/ShuffleDataMasking.Infra.Data.csproj",
+        "projectName": "ShuffleDataMasking.Infra.Data",
+        "projectPath": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Infra.Data/ShuffleDataMasking.Infra.Data.csproj",
+        "packagesPath": "/home/frank/.nuget/packages/",
+        "outputPath": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Infra.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/frank/Projects/others/git/shuffle-data-masking-worker/nuget.config",
+          "/home/frank/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.devfksolutions.com.br/repository/fksolutions-nuget/": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/ShuffleDataMasking.Domain.csproj": {
+                "projectPath": "/home/frank/Projects/others/git/shuffle-data-masking-worker/ShuffleDataMasking.Domain/ShuffleDataMasking.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.11.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

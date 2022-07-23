@@ -1,0 +1,97 @@
+# Default values for fksolutions-apps.
+replicaCount: $REPLICAS
+
+pipeline:
+  version: $GO_PIPELINE_LABEL
+
+image:
+  repository: $IMAGE_REPOSITRY
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: $IMAGE_TAG
+
+database:
+  enabled: true
+  dbEnv: $ENV
+
+app:
+  type: "worker"
+  probe:
+    liveness: "$ENDPOINT_TEST"
+    readiness: "$ENDPOINT_TEST"
+service:
+  name: http-port
+  port: 80
+  targetPort: 8080
+
+secret:
+  enable: true
+  data:
+    # ConnectionStrings
+    ConnectionStrings__ShuffleDataMasking: "$SHUFFLE_DATA_MASKING_DB"
+    ConnectionStrings__FKSolutions: "$FKSOLUTIONS__DB"
+    ConnectionStrings__FKS: "$FKS_DB"
+    # RabbitMQ
+    RabbitConfig__Username: "$RABBIT_TRN_USER"
+    RabbitConfig__Password: "$RABBIT_TRN_PASS"
+
+config:
+  enable: true
+  data:
+    # Timezone
+    TZ: "$TZ"
+
+    # Logging config
+    Logging__LogLevel__Default: "$LOG_LEVEL_DEFAULT"
+    Logging__LogLevel__Microsoft: "$LOG_LEVEL_MICROSOFT"
+    Logging__LogLevel__Microsoft.Hosting.Lifetime: "$LOG_LEVEL_MICROSOFT_LIFETIME"
+
+    # RabbitConfig
+    RabbitConfig__HostName: "$RABBIT_TRN_HOST"
+    RabbitConfig__Port: "$RABBIT_TRN_PORT"
+    RabbitConfig__VirtualHost: "$RABBIT_TRN_VHOST"
+
+    # Queues
+    Queues__DataMasking__PrefixForRetriable: "$QUEUE_DATA_MASKING"
+
+ingress:
+  hosts:
+    - host: "$INGRESS_HOSTNAME"
+      paths:
+      - path: /
+        backend:
+          serviceName: "$APP_NAME-svc"
+          servicePort: $SVC_PORT
+  tls:
+    - secretName: ${APP_NAME}-${ENV}-tls
+      hosts:
+        - $INGRESS_HOSTNAME
+
+resources:
+  limits:
+    cpu: "$RESOURCE_CPU_LIMIT"
+    memory: "$RESOURCE_MEM_LIMIT"
+  requests:
+    cpu: "$RESOURCE_CPU_REQUEST"
+    memory: "$RESOURCE_MEM_REQUEST"
+
+autoscaling:
+  enabled: false
+  minReplicas: "$MAX_REPLICAS"
+  maxReplicas: "$REPLICAS"
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+vault:
+  enabled: $USE_VAULT
+  vaultimage: registry.devfksolutions.com.br/base-images/vault-secrets-injector:1.1.0
+  mountPath: /app/vault
+  fileName: secrets
+  resources:
+    limits:
+      cpu: $VAULT_RESOURCE_CPU_LIMIT
+      memory: $VAULT_RESOURCE_MEM_LIMIT
+
+metadata:
+  name: $APP_NAME
+  version: $GO_PIPELINE_LABEL
